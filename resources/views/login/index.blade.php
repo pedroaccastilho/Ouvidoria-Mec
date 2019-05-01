@@ -48,10 +48,10 @@
                     </div>
                     <br>
 					<div class="form-group row">
-					 <label for="Enviar" class="col-sm-4 col-form-label"></label>
+					 <label for="Enviar" class="col-sm-4 col-form-label">Enviar</label>
 						<div class="col-sm-5">
-                    <br><button type="button" class="btn btn-dark">Enviar</button>
-					<button type="button" class="btn btn-outline-dark">Limpar</button>
+                    <br><input type="submit" class="btn btn-dark">
+					<button type="reset" class="btn btn-outline-dark">Limpar</button>
 					<label for="Enviar" class="col-sm-2 col-form-label"></label>
 
 						 <button type="button" class="btn btn-outline-dark">Denuncia anônima</button>
