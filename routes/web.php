@@ -15,7 +15,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/login',['as'=>'login.index','uses'=>'LoginController@index']);
+Route::get('/',['as'=>'login.index','uses'=>'LoginController@index']);
 Route::post('/login/entrar',['as'=>'login.entrar','uses'=>'LoginController@entrar']);
 
 Route::group(['middleware'=>'auth'],function(){
