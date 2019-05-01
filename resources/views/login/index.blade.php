@@ -48,9 +48,9 @@
                     </div>
                     <br>
 					<div class="form-group row">
-					 <label for="Enviar" class="col-sm-4 col-form-label">Enviar</label>
+					 <label for="Enviar" class="col-sm-4 col-form-label"></label>
 						<div class="col-sm-5">
-                    <br><input type="submit" class="btn btn-dark">
+                    <br><input type="submit" class="btn btn-dark" value="Enviar">
 					<button type="reset" class="btn btn-outline-dark">Limpar</button>
 					<label for="Enviar" class="col-sm-2 col-form-label"></label>
 
