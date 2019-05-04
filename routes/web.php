@@ -20,6 +20,11 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::group(['middleware'=>'admin'],function(){
   Route::get('/admin',['as'=>'admin.index','uses'=>'AdminController@index']);
+  Route::get('/admin/cadastrar',['as'=>'admin.cadastrar','uses'=>'AdminController@cadastrar']);
+  Route::post('/admin/salvar',['as'=>'admin.salvar','uses'=>'AdminController@salvar']);
+  
+  Route::get('/user/cadastrar',['as'=>'user.cadastrar','uses'=>'UserController@cadastrar']);
+  Route::post('/user/salvar',['as'=>'user.salvar','uses'=>'UserController@salvar']);
 });
 
 Route::group(['middleware'=>'user'],function(){

@@ -5,6 +5,10 @@
     <title>@yield('title')</title>
   </head>
   <body>
+    <form method="post" action={{route('login.sair')}}>
+      @csrf
+      <input type="submit" name="submit">
+    </form>
     @yield('content')
   </body>
 </html>
