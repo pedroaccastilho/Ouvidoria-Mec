@@ -15,14 +15,14 @@ Route::get('/',['as'=>'login.index','uses'=>'LoginController@index']);
 Route::post('/login/entrar',['as'=>'login.entrar','uses'=>'LoginController@entrar']);
 
 Route::group(['middleware'=>'auth'],function(){
-  Route::post('/login/sair',['as'=>'login.sair','uses'=>'LoginController@sair']);
+  Route::post('/menu',['as'=>'menu.button','uses'=>'HomeController@menu']);
 });
 
 Route::group(['middleware'=>'admin'],function(){
   Route::get('/admin',['as'=>'admin.index','uses'=>'AdminController@index']);
   Route::get('/admin/cadastrar',['as'=>'admin.cadastrar','uses'=>'AdminController@cadastrar']);
   Route::post('/admin/salvar',['as'=>'admin.salvar','uses'=>'AdminController@salvar']);
-  
+
   Route::get('/user/cadastrar',['as'=>'user.cadastrar','uses'=>'UserController@cadastrar']);
   Route::post('/user/salvar',['as'=>'user.salvar','uses'=>'UserController@salvar']);
 });

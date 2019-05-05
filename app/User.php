@@ -39,7 +39,12 @@ class User extends Authenticatable
     ];
 
     public static function newUser($dados, $isAdm){
-      $user = new User();
+      $user = (object)User::where('email',$dados->email)->get();
+      if($user->isEmpty()){
+        $user = new User();
+      }else{
+        $user = $user[0];
+      }
       $user->isAdm = $isAdm;
       $user->name  = $dados->name;
       $user->email = $dados->email;

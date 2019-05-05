@@ -28,9 +28,4 @@ class LoginController extends Controller
       }
       return redirect()->route('login.index');
     }
-
-    public function sair(Request $req){
-      Auth::logout();
-      return redirect()->route('login.index');
-    }
 }
