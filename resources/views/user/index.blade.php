@@ -3,5 +3,5 @@
 @section('title','User')
 
 @section('content')
-  <h3>User</h3>
+  <h3>User {{Auth::user()->name}}</h3>
 @endsection
