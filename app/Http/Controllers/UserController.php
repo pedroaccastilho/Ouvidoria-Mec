@@ -15,6 +15,11 @@ class UserController extends Controller
       return view('user.cadastrar');
     }
 
+    public function listar(){
+      $users = User::orderBy('created_at','DESC')->get();
+      return view('user/listar', compact('users',$users));
+    }
+
     public function salvar(Request $req){
       $dados = (object)$req->all();
       User::newUser($dados, false);

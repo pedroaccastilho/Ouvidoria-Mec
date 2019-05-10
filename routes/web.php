@@ -15,7 +15,7 @@ Route::get('/',['as'=>'login.index','uses'=>'LoginController@index']);
 Route::post('/login/entrar',['as'=>'login.entrar','uses'=>'LoginController@entrar']);
 
 Route::group(['middleware'=>'auth'],function(){
-  Route::post('/menu',['as'=>'menu.button','uses'=>'HomeController@menu']);
+  Route::get('/login/sair',['as'=>'login.sair','uses'=>'LoginController@sair']);
 });
 
 Route::group(['middleware'=>'admin'],function(){
@@ -25,6 +25,7 @@ Route::group(['middleware'=>'admin'],function(){
 
   Route::get('/user/cadastrar',['as'=>'user.cadastrar','uses'=>'UserController@cadastrar']);
   Route::post('/user/salvar',['as'=>'user.salvar','uses'=>'UserController@salvar']);
+  Route::get('/user/listar',['as'=>'user.listar','uses'=>'UserController@listar']);
 });
 
 Route::group(['middleware'=>'user'],function(){
