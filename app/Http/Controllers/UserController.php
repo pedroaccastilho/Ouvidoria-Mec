@@ -11,19 +11,20 @@ class UserController extends Controller
       return view('user.index');
     }
 
-    public function cadastrar(){
-      return view('user.cadastrar');
-    }
-
-    public function listar(){
+    public function showAll(){
       $users = User::orderBy('created_at','DESC')->get();
-      return view('user/listar', compact('users',$users));
+      return view('admin/users/showAll', compact('users',$users));
     }
 
-    public function salvar(Request $req){
-      $dados = (object)$req->all();
-      User::newUser($dados, false);
+    public function show($id){
+      $user = (object)User::where('id',$id)->get();
+      return view('admin.users.show')->with(['user'=>$user]);
+    }
 
-      return redirect()->route('login.index');
+    public function save(Request $req){
+      $dados = (object)$req->all();
+      $user = User::newUser($dados);
+
+      return redirect()->route('user.show',$user->id);
     }
 }

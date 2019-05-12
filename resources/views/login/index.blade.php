@@ -28,7 +28,7 @@
                 <br><br><br><br><br><br><br><br>
                 <h3><u>Login</u></h3><br><br>
 
-                  <form method="post" action={{route('login.entrar')}}>
+                  <form method="post" action={{route('login.enter')}}>
                     @csrf
                     <div class="form-group row">
                         <label for="Login" class="col-sm-2 col-form-label">Login:</label>

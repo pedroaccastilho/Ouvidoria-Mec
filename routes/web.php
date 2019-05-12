@@ -12,22 +12,23 @@
 */
 
 Route::get('/',['as'=>'login.index','uses'=>'LoginController@index']);
-Route::post('/login/entrar',['as'=>'login.entrar','uses'=>'LoginController@entrar']);
+Route::post('/login/enter',['as'=>'login.enter','uses'=>'LoginController@enter']);
 
 Route::group(['middleware'=>'auth'],function(){
-  Route::get('/login/sair',['as'=>'login.sair','uses'=>'LoginController@sair']);
+  Route::get('/login/logout',['as'=>'login.logout','uses'=>'LoginController@logout']);
 });
 
+//Rotas de parte administrativa
 Route::group(['middleware'=>'admin'],function(){
   Route::get('/admin',['as'=>'admin.index','uses'=>'AdminController@index']);
-  Route::get('/admin/cadastrar',['as'=>'admin.cadastrar','uses'=>'AdminController@cadastrar']);
-  Route::post('/admin/salvar',['as'=>'admin.salvar','uses'=>'AdminController@salvar']);
 
-  Route::get('/user/cadastrar',['as'=>'user.cadastrar','uses'=>'UserController@cadastrar']);
-  Route::post('/user/salvar',['as'=>'user.salvar','uses'=>'UserController@salvar']);
-  Route::get('/user/listar',['as'=>'user.listar','uses'=>'UserController@listar']);
+  //objeto users
+  Route::post('/user/save',['as'=>'user.save','uses'=>'UserController@save']);
+  Route::get('/user/showAll',['as'=>'user.showAll','uses'=>'UserController@showAll']);
+  Route::get('/user/show/{id}',['as'=>'user.show','uses'=>'UserController@show']);
 });
 
+//Rotas de parte funcional
 Route::group(['middleware'=>'user'],function(){
   Route::get('/user',['as'=>'user.index','uses'=>'UserController@index']);
 });
