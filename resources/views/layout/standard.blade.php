@@ -28,9 +28,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('user.showAll')}}">Usuarios</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('department.showAll')}}">Departamentos</a>
+          </li>
         </ul>
         @else
-        
+
         @endif
         <ul class="navbar-nav ml-auto nav-flex-icons">
           <li class="nav-item dropdown">

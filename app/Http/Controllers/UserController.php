@@ -23,7 +23,7 @@ class UserController extends Controller
 
     public function save(Request $req){
       $dados = (object)$req->all();
-      $user = User::newUser($dados);
+      $user = User::saveNew($dados);
 
       return redirect()->route('user.show',$user->id);
     }

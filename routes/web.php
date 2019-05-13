@@ -26,6 +26,11 @@ Route::group(['middleware'=>'admin'],function(){
   Route::post('/user/save',['as'=>'user.save','uses'=>'UserController@save']);
   Route::get('/user/showAll',['as'=>'user.showAll','uses'=>'UserController@showAll']);
   Route::get('/user/show/{id}',['as'=>'user.show','uses'=>'UserController@show']);
+
+  //objeto departments
+  Route::post('/department/save',['as'=>'department.save','uses'=>'DepartmentController@save']);
+  Route::get('/department/showAll',['as'=>'department.showAll','uses'=>'DepartmentController@showAll']);
+  Route::get('/department/show/{id}',['as'=>'department.show','uses'=>'DepartmentController@show']);
 });
 
 //Rotas de parte funcional

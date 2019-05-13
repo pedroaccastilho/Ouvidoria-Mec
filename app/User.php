@@ -38,13 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function newUser($dados){
-      $user = (object)User::where('email',$dados->email)->get();
-      if($user->isEmpty()){
-        $user = new User();
-      }else{
-        $user = $user[0];
-      }
+    public static function saveUser($dados){
+      $user = new User();
       $user->isAdm = $dados->isAdm;
       $user->name  = $dados->name;
       $user->email = $dados->email;
