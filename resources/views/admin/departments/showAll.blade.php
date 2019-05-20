@@ -10,7 +10,7 @@
       <div class="col-md-6">
         <div class="modal fade" id="modalNewForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
           aria-hidden="true">
-          <form action={{route('department.save')}} method="post">
+          <form action={{route('department.savenew')}} method="post">
             @csrf
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -45,12 +45,6 @@
           </div>
       </div>
   </div>
-  <div class="modal fade" id="modalDeleteForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <form class="" action="index.html" method="post">
-
-    </form>
-  </div>
   <div class="panel">
       <table class="table" align="center">
           <thead>
@@ -66,17 +60,6 @@
                   <td> <a href="{{route('department.show',$department->id)}}">{{$department->id}}</a> </td>
                   <td> <a href="{{route('department.show',$department->id)}}">{{$department->name}}</a> </td>
                   <td> <a href="{{route('department.show',$department->id)}}">{{$department->description}}</a> </td>
-                  <td>
-                    <!-- Basic dropdown -->
-                    <a class="mr-4" data-toggle="dropdown" aria-haspopup="true"
-                      aria-expanded="false"><i class="fas fa-caret-square-down"></i></a>
-
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Editar</a>
-                      <a class="dropdown-item" href="#">Excluir</a>
-                    </div>
-                    <!-- Basic dropdown -->
-                  <td>
               </tr>
           @endforeach
 

@@ -8,54 +8,133 @@
         <h2>Usuarios</h2>
       </div>
       <div class="col-md-6">
-        <div class="modal fade" id="modalNewForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-          aria-hidden="true">
-          <form action={{route('user.save')}} method="post">
-            @csrf
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                  <h4 class="modal-title w-100 font-weight-bold">Novo Usuario</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body mx-3">
-                  <div class="md-form mb-5">
-                    <i class="fas fa-address-card prefix grey-text"></i>
-                    <input type="text" name="name" id="defaultForm-name" class="form-control validate" required>
-                    <label data-error="" data-success="" for="defaultForm-name">Nome</label>
-                  </div>
-                  <div class="md-form mb-5">
-                    <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" name="email" id="defaultForm-email" class="form-control validate">
-                    <label data-error="" data-success="" for="defaultForm-email">Email</label>
-                  </div>
-                  <div class="md-form mb-4">
-                    <i class="fas fa-lock prefix grey-text"></i>
-                    <input type="password" name="password" id="defaultForm-pass" class="form-control validate">
-                    <label data-error="" data-success="" for="defaultForm-pass">Senha</label>
-                  </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-center">
-                  <input class="btn btn-primary" type="submit" name="submit" value="Enviar">
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-
           <div class="text-center">
             <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalNewForm">Novo</a>
           </div>
       </div>
   </div>
-  <div class="modal fade" id="modalDeleteForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <form class="" action="index.html" method="post">
+  <div class="col-md-12">
+    <div class="modal fade" id="modalNewForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <form action={{route('user.savenew')}} method="post" id="formAction">
+        @csrf
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Novo Usuario</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body mx-3">
 
-    </form>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">* Tipo:</label>
+                    <div class="col-sm-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="type" value="P" checked>
+                            <label class="form-check-label" for="prop">Proprietário</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="type" value="L">
+                            <label class="form-check-label" for="loc">Locatário</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Nome" class="col-sm-4 col-form-label">* Nome:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" maxlength="50" name="name" placeholder="Seu nome" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="CPF" class="col-sm-4 col-form-label">* CPF:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" maxlength="11" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="RG" class="col-sm-4 col-form-label">* RG:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" maxlength="9" name="rg" placeholder="00.000.000-0" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">* Sexo:</label>
+                    <div class="col-sm-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genre" value="Masculino" checked>
+                            <label class="form-check-label" for="masc">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genre" value="Feminino">
+                            <label class="form-check-label" for="fem">Feminino</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genre" value="Outros">
+                            <label class="form-check-label" for="outro">Outro</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Data" class="col-sm-4 col-form-label">* Data de nascimento:</label>
+                    <div class="col-sm-5">
+                        <input type="date" class="form-control" name="birthday" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Email" class="col-sm-4 col-form-label">* E-mail:</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" maxlength="50" name="email" placeholder="exemplo@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Fone" class="col-sm-4 col-form-label">* Telefone:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" maxlength="11" name="phone" placeholder="(99)9999-9999" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="apartmentNumber" class="col-sm-4 col-form-label">* Nº Apto/ Bloco:</label>
+                    <div class="col-3">
+                        <input type="text" name="apartmentNumber" id="apartmentNumber" class="form-control" placeholder="Nº" required>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" name="block" id="block" class="form-control" placeholder="Bloco" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="isAdm" class="col-sm-4 col-form-label">Administrador:</label>
+                    <div class="col-sm-8">
+                      <input type="checkbox" name="isAdm" id="isAdm" onchange="administratorCheckbox()">
+                    </div>
+                </div>
+                <div class="form-group row" id="department" hidden>
+                    <label for="Condominio" class="col-sm-4 col-form-label">* Departmento:</label>
+                    <div class="col-sm-8">
+                        <select class="custom-select" name="department" id="inputDepartment">
+
+                        </select>
+                    </div>
+                </div>
+              </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <input class="btn btn-primary" type="submit" name="submit" value="Enviar">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
+
   <div class="panel">
       <table class="table" align="center">
           <thead>
@@ -63,6 +142,9 @@
               <th> # </th>
               <th> Nome</th>
               <th> Email</th>
+              <th> Telefone</th>
+              <th> Numero de apartamento</th>
+              <th> Administrador</th>
           </tr>
           </thead>
           <tbody>
@@ -71,21 +153,33 @@
                   <td> <a href="{{route('user.show',$user->id)}}">{{$user->id}}</a> </td>
                   <td> <a href="{{route('user.show',$user->id)}}">{{$user->name}}</a> </td>
                   <td> <a href="{{route('user.show',$user->id)}}">{{$user->email}}</a> </td>
+                  <td> <a href="{{route('user.show',$user->id)}}">{{$user->phone}}</a> </td>
+                  <td> <a href="{{route('user.show',$user->id)}}">{{$user->apartmentNumber}}</a> </td>
                   <td>
-                    <!-- Basic dropdown -->
-                    <a class="mr-4" data-toggle="dropdown" aria-haspopup="true"
-                      aria-expanded="false"><i class="fas fa-caret-square-down"></i></a>
-
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Editar</a>
-                      <a class="dropdown-item" href="#">Excluir</a>
-                    </div>
-                    <!-- Basic dropdown -->
-                  <td>
+                    <a href="{{route('user.show',$user->id)}}">
+                      @if($user->isAdm)
+                        <i class="fas fa-check-circle"></i>
+                      @endif
+                    </a>
+                  </td>
               </tr>
           @endforeach
 
           </tbody>
       </table>
+      {{ $users->links() }}
   </div>
+  <script>
+    function administratorCheckbox() {
+      var departmento = document.getElementById('department');
+      var inputDepartamento = document.getElementById('inputDepartment');
+      if(document.getElementById('isAdm').checked){
+        departmento.hidden = false;
+        inputDepartamento.required = true;
+      }else{
+        departmento.hidden = true;
+        inputDepartamento.required = false;
+      }
+    }
+  </script>
 @endsection

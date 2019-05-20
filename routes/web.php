@@ -23,12 +23,14 @@ Route::group(['middleware'=>'admin'],function(){
   Route::get('/admin',['as'=>'admin.index','uses'=>'AdminController@index']);
 
   //objeto users
-  Route::post('/user/save',['as'=>'user.save','uses'=>'UserController@save']);
+  Route::post('/user/savenew',['as'=>'user.savenew','uses'=>'UserController@saveNew']);
+  Route::post('/user/saveupdate',['as'=>'user.saveupdate','uses'=>'UserController@saveUpdate']);
+  Route::post('/user/delete/{id}',['as'=>'user.destroy','uses'=>'UserController@destroy']);
   Route::get('/user/showAll',['as'=>'user.showAll','uses'=>'UserController@showAll']);
   Route::get('/user/show/{id}',['as'=>'user.show','uses'=>'UserController@show']);
 
   //objeto departments
-  Route::post('/department/save',['as'=>'department.save','uses'=>'DepartmentController@save']);
+  Route::post('/department/savenew',['as'=>'department.savenew','uses'=>'DepartmentController@saveNew']);
   Route::get('/department/showAll',['as'=>'department.showAll','uses'=>'DepartmentController@showAll']);
   Route::get('/department/show/{id}',['as'=>'department.show','uses'=>'DepartmentController@show']);
 });

@@ -17,7 +17,7 @@ class DepartmentController extends Controller
     return view('admin.departments.show')->with(['department'=>$department]);
   }
 
-  public function save(Request $req){
+  public function saveNew(Request $req){
     $dados = (object)$req->all();
     $user = Department::saveNew($dados);
 

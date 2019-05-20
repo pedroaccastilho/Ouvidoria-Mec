@@ -23,7 +23,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-        @if(Auth::user()->isAdm)
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="{{route('user.showAll')}}">Usuarios</a>
@@ -31,10 +30,19 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('department.showAll')}}">Departamentos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Condominio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dúvidas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Reclamação</a>
+          </li>
         </ul>
-        @else
-
-        @endif
         <ul class="navbar-nav ml-auto nav-flex-icons">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
@@ -53,9 +61,21 @@
     </nav>
     <!--/.Navbar -->
     <br>
+    <br>
     <div class="container">
       @yield('content')
     </div>
+    <!-- Footer -->
+    <footer class="page-footer fixed-bottom font-small blue">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="#"> Ouvidoria Mec</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
     <!-- SCRIPTS -->
     <!-- JQuery -->
     <script type="text/javascript" src="{{url('js')}}/jquery-3.4.0.min.js"></script>
