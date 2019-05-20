@@ -17,7 +17,7 @@ class LoginController extends Controller
       return view('login.index');
     }
 
-    public function entrar(Request $req){
+    public function enter(Request $req){
       $info = (object)$req->all();
       if(Auth::attempt(['email'=>$info->email,'password'=>$info->password])){
         if(Auth::user()->isAdm){
@@ -29,7 +29,7 @@ class LoginController extends Controller
       return redirect()->route('login.index');
     }
 
-    public function sair(Request $req){
+    public function logout(){
       Auth::logout();
       return redirect()->route('login.index');
     }

@@ -3,9 +3,6 @@
 @section('title','Admin')
 
 @section('content')
-  <h3>Admin</h3>
-  <form method="post" action={{route('login.sair')}}>
-    @csrf
-    <input type="submit" name="submit">
-  </form>
+  <h3>Admin {{Auth::user()->name}}</h3>
+
 @endsection

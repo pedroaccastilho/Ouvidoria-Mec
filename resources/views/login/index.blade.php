@@ -28,7 +28,7 @@
                 <br><br><br><br><br><br><br><br>
                 <h3><u>Login</u></h3><br><br>
 
-                  <form method="post" action={{route('login.entrar')}}>
+                  <form method="post" action={{route('login.enter')}}>
                     @csrf
                     <div class="form-group row">
                         <label for="Login" class="col-sm-2 col-form-label">Login:</label>
@@ -40,7 +40,7 @@
                     <div class="form-group row">
                         <label for="Nome" class="col-sm-2 col-form-label">Senha:</label>
                         <div class="col-sm-6">
-                            <input type="text" name="password" class="form-control" maxlength="50" id="Senha" placeholder="*********">
+                            <input type="password" name="password" class="form-control" maxlength="50" id="Senha">
                         </div>
                     </div>
                             </div>

@@ -11,21 +11,31 @@
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
 Route::get('/',['as'=>'login.index','uses'=>'LoginController@index']);
-Route::post('/login/entrar',['as'=>'login.entrar','uses'=>'LoginController@entrar']);
+Route::post('/login/enter',['as'=>'login.enter','uses'=>'LoginController@enter']);
 
 Route::group(['middleware'=>'auth'],function(){
-  Route::post('/login/sair',['as'=>'login.sair','uses'=>'LoginController@sair']);
+  Route::get('/login/logout',['as'=>'login.logout','uses'=>'LoginController@logout']);
 });
 
+//Rotas de parte administrativa
 Route::group(['middleware'=>'admin'],function(){
   Route::get('/admin',['as'=>'admin.index','uses'=>'AdminController@index']);
+
+  //objeto users
+  Route::post('/user/savenew',['as'=>'user.savenew','uses'=>'UserController@saveNew']);
+  Route::post('/user/saveupdate',['as'=>'user.saveupdate','uses'=>'UserController@saveUpdate']);
+  Route::post('/user/delete/{id}',['as'=>'user.destroy','uses'=>'UserController@destroy']);
+  Route::get('/user/showAll',['as'=>'user.showAll','uses'=>'UserController@showAll']);
+  Route::get('/user/show/{id}',['as'=>'user.show','uses'=>'UserController@show']);
+
+  //objeto departments
+  Route::post('/department/savenew',['as'=>'department.savenew','uses'=>'DepartmentController@saveNew']);
+  Route::get('/department/showAll',['as'=>'department.showAll','uses'=>'DepartmentController@showAll']);
+  Route::get('/department/show/{id}',['as'=>'department.show','uses'=>'DepartmentController@show']);
 });
 
+//Rotas de parte funcional
 Route::group(['middleware'=>'user'],function(){
   Route::get('/user',['as'=>'user.index','uses'=>'UserController@index']);
 });
