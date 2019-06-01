@@ -52,7 +52,7 @@
             <div class="dropdown-menu dropdown-menu-right dropdown-default"
               aria-labelledby="navbarDropdownMenuLink-333">
               <a class="dropdown-item" href="#">Perfil</a>
-              <a class="dropdown-item" href="#">Configurações</a>
+              <a class="dropdown-item" href="{{route('login.changePassword')}}">Alterar senha</a>
               <a class="dropdown-item" href="{{route('login.logout')}}">Logout</a>
             </div>
           </li>

@@ -49,7 +49,7 @@ class User extends Authenticatable
       $user->genre  = $dados->genre;
       $user->birthday  = $dados->birthday;
       $user->email = $dados->email;
-      $user->condominium = bcrypt('1');
+      $user->condominium = '1';
       $user->phone  = $dados->phone;
       $user->apartmentNumber  = $dados->apartmentNumber;
       $user->block  = $dados->block;
@@ -70,7 +70,7 @@ class User extends Authenticatable
       $user->genre  = $dados->genre;
       $user->birthday  = $dados->birthday;
       $user->email = $dados->email;
-      $user->condominium = bcrypt('1');
+      $user->condominium = '1';
       $user->phone  = $dados->phone;
       $user->apartmentNumber  = $dados->apartmentNumber;
       $user->block  = $dados->block;

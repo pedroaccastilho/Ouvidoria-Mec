@@ -121,7 +121,9 @@
                     <label for="Condominio" class="col-sm-4 col-form-label">* Departmento:</label>
                     <div class="col-sm-8">
                         <select class="custom-select" name="department" id="inputDepartment">
-
+                            @foreach($departments as $department)
+                              <option value="{{$department->id}}">{{$department->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

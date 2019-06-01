@@ -16,7 +16,8 @@ class UserController extends Controller
 
     public function showAll(){
       $users = User::orderBy('created_at','DESC')->Paginate(10);
-      return view('admin/users/showAll', compact('users',$users));
+      $departments = Department::select()->get();
+      return view('admin/users/showAll', compact('users',$users), compact('departments',$departments));
     }
 
     public function show($id){

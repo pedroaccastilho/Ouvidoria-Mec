@@ -16,6 +16,8 @@ Route::post('/login/enter',['as'=>'login.enter','uses'=>'LoginController@enter']
 
 Route::group(['middleware'=>'auth'],function(){
   Route::get('/login/logout',['as'=>'login.logout','uses'=>'LoginController@logout']);
+  Route::get('/changePassword',['as'=>'login.changePassword','uses'=>'LoginController@changePassword']);
+  Route::post('/changePassword/save',['as'=>'login.saveNewPassword','uses'=>'LoginController@savePassword']);
 });
 
 //Rotas de parte administrativa
