@@ -39,6 +39,9 @@ Route::group(['middleware'=>'admin'],function(){
   //objeto reclamacoes
   Route::get('/reclamacao/showAll',['as'=>'reclamacao.showAll','uses'=>'ReclamacaoController@showAll']);
   Route::get('/reclamacao/show/{id}',['as'=>'reclamacao.show','uses'=>'ReclamacaoController@show']);
+
+  //objeto solucoes
+  Route::post('/solucao/savenew',['as'=>'solucao.savenew','uses'=>'SolucaoController@savenew']);
 });
 
 //Rotas de parte funcional
