@@ -46,7 +46,7 @@
   </div>
   <div class="col-md-6">
     <div class="text-center">
-      <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalNewSolucao">Nova solução</a>
+      <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalNewSolucao">Adicionar solução</a>
     </div>
   </div>
 </div>
@@ -59,7 +59,9 @@
       <p>Usuario: {{$user[0]->name}}</p>
   </div>
   <div class="col-md-4">
+    <!-- Aparecer apenas quando for != null -->
       <h3>Soluções</h3><br>
+
     @foreach($solucoes as $solucao)
     <hr>
       <p>Titulo: {{$solucao->title}}</p>

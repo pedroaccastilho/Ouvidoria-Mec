@@ -39,4 +39,12 @@ class ReclamacaoController extends Controller
     $solucoes = Solucao::where('protocoloId',$reclamacao[0]->id)->get();
     return view('admin.reclamacoes.show')->with(compact('reclamacao',$reclamacao))->with(compact('user',$user))->with(compact('department',$department))->with(compact('solucoes',$solucoes))->with(compact('authors',$authors));
   }
+
+  public function historico(){
+    $reclamacoes = Reclamacao::orderBy('updated_at','DESC')->where('userId',Auth::user()->id)->get();
+    $authors = User::select()->get();
+    $departments = Department::select()->get();
+    $solucoes = Solucao::whereIn('protocoloId',DB::table('reclamacaos')->select('id')->where('userId',Auth::user()->id))->get();
+    return view('user.historico')->with(compact('reclamacoes',$reclamacoes))->with(compact('departments',$departments))->with(compact('solucoes',$solucoes))->with(compact('authors',$authors));
+  }
 }

@@ -32,7 +32,7 @@
                     <a class="nav-link" href="{{route('reclamacao.new')}}">Reclamações</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Histórico</a>
+                    <a class="nav-link" href="{{route('historico.show')}}">Histórico</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Notificações</a>

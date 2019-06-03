@@ -16,6 +16,7 @@
               <th> Nome</th>
               <th> Nome Usuario</th>
               <th> Departamento</th>
+              <th> Respondido?</th>
           </tr>
           </thead>
           <tbody>
@@ -33,6 +34,9 @@
                       <td> <a href="{{route('reclamacao.show',$reclamacao->id)}}">{{$department->name}}</a> </td>
                     @endif
                   @endforeach
+                  @if($reclamacao->adminId != null)
+                    <td> <a href="{{route('reclamacao.show',$reclamacao->id)}}"><i class="fas fa-check-circle"></i></a></td>
+                  @endIf
               </tr>
           @endforeach
 

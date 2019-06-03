@@ -1,6 +1,6 @@
 @extends('layout.standardUser')
 
-@section('title','User')
+@section('title','MEC - Reclamacão')
 
 @section('content')
 <!--Grid row-->
