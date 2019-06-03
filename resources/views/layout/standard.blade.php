@@ -31,16 +31,10 @@
             <a class="nav-link" href="{{route('department.showAll')}}">Departamentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Condominio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dúvidas</a>
+            <a class="nav-link" href="{{route('reclamacao.showAll')}}">Reclamações</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">FAQ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Reclamação</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">

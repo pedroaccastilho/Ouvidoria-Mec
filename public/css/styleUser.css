@@ -49,3 +49,15 @@ h5 {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.backgroundDiv {
+        background-color: whitesmoke;
+        padding: 20px;
+    }
+
+.backgroundimageusers{
+  background-image: url('../img/user/home-banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

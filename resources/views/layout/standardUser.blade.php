@@ -19,17 +19,17 @@
           <!--Navbar-->
           <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
             <div class="container">
-              <a class="navbar-brand" href="#"><strong>Ouvidoria Mec</strong></a>
+              <strong class="navbar-brand" >Ouvidoria Mec</strong>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+                    <a class="nav-link" href="{{route('user.index')}}">Home <span class="sr-only"></span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Reclamações</a>
+                    <a class="nav-link" href="{{route('reclamacao.new')}}">Reclamações</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Histórico</a>
@@ -60,7 +60,7 @@
           </nav>
           <!-- Navbar -->
           <!-- Full Page Intro -->
-          <div class="view" style="background-image: url('img/user/home-banner.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+          <div class="view backgroundimageusers">
             <!-- Mask & flexbox options-->
             <div class="mask rgba-black-light align-items-center">
               <!-- Content -->

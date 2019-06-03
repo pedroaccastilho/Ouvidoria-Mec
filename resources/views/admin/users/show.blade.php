@@ -127,7 +127,7 @@
                   <div class="form-group row" id="department">
                       <label for="Condominio" class="col-sm-4 col-form-label">* Departamento:</label>
                       <div class="col-sm-8">
-                          <select class="custom-select" name="department" multiple>
+                          <select class="custom-select" name="department">
                               @foreach($departments as $department)
                                   <option value="{{$department->id}}">{{$department->name}}</option>
                               @endforeach

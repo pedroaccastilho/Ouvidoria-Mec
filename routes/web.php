@@ -35,9 +35,15 @@ Route::group(['middleware'=>'admin'],function(){
   Route::post('/department/savenew',['as'=>'department.savenew','uses'=>'DepartmentController@saveNew']);
   Route::get('/department/showAll',['as'=>'department.showAll','uses'=>'DepartmentController@showAll']);
   Route::get('/department/show/{id}',['as'=>'department.show','uses'=>'DepartmentController@show']);
+
+  //objeto reclamacoes
+  Route::get('/reclamacao/showAll',['as'=>'reclamacao.showAll','uses'=>'ReclamacaoController@showAll']);
+  Route::get('/reclamacao/show/{id}',['as'=>'reclamacao.show','uses'=>'ReclamacaoController@show']);
 });
 
 //Rotas de parte funcional
 Route::group(['middleware'=>'user'],function(){
   Route::get('/user',['as'=>'user.index','uses'=>'UserController@index']);
+  Route::get('/user/reclamacao',['as'=>'reclamacao.new','uses' => 'ReclamacaoController@new']);
+  Route::post('/user/reclamacao/savenew',['as' => 'reclamacao.savenew','uses'=>'ReclamacaoController@saveNew']);
 });

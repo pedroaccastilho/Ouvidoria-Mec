@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Auth;
 
@@ -56,6 +57,11 @@ class User extends Authenticatable
       $user->password = bcrypt('123');
       $user->adminId = Auth::user()->id;
       $user->save();
+
+      //insert relacao em departments e users
+      if(Arr::has($dados,'isAdm')){
+        DB::table('rel_users_departments')->insert(['departmentId'=>$dados->department,'adminId'=>$user->id,'created_at'=> date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')]);
+      }
 
       return $user;
     }
