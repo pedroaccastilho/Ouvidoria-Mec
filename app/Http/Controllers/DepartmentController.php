@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Department;
 
@@ -23,5 +24,13 @@ class DepartmentController extends Controller
     $user = Department::saveNew($dados);
 
     return redirect()->route('department.show',$user->id);
+  }
+
+  public function destroy($id){
+    DB::table('rel_users_departments')->where('departmentId',$id)->delete();
+    $department = Department::FindOrFail($id);
+    $department->delete();
+
+    return redirect()->route('department.showAll');
   }
 }

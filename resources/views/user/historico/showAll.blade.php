@@ -23,23 +23,23 @@
           <tbody>
           @foreach($reclamacoes as $reclamacao)
               <tr>
-                  <td> {{$reclamacao->description}} </td>
+                  <td> <a href="{{route('historico.show',$reclamacao->id)}}">{{$reclamacao->description}}</a> </td>
                   @if($reclamacao->adminId!=null)
                     @foreach($authors as $author)
                       @if($author->id == $reclamacao->adminId)
-                        <td> {{$author->name}} </td>
+                        <td> <a href="{{route('historico.show',$reclamacao->id)}}">{{$author->name}}</a> </td>
                       @endif
                     @endforeach
                     @else
-                      <td> <b>Não respondido</b> </td>
+                      <td> <a href="{{route('historico.show',$reclamacao->id)}}"><b>Não respondido</b></a> </td>
                   @endif
                   @foreach($departments as $department)
                     @if($department->id == $reclamacao->departmentId)
-                      <td> {{$department->name}} </td>
+                      <td> <a href="{{route('historico.show',$reclamacao->id)}}">{{$department->name}}</a> </td>
                     @endif
                   @endforeach
-                  <td> {{$reclamacao->created_at->format('d/m/Y H:i:s')}}</td>
-                  <td> {{$reclamacao->updated_at->format('d/m/Y H:i:s')}}</td>
+                  <td> <a href="{{route('historico.show',$reclamacao->id)}}">{{$reclamacao->created_at->format('d/m/Y H:i')}}</a></td>
+                  <td> <a href="{{route('historico.show',$reclamacao->id)}}">{{$reclamacao->updated_at->format('d/m/Y H:i')}}</a></td>
               </tr>
           @endforeach
 

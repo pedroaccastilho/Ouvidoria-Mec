@@ -12,11 +12,11 @@ class Solucao extends Model
     $obj = new Solucao();
     $obj->description  = $dados->description;
     $obj->title  = $dados->title;
-    $obj->protocoloId = $dados->protocoloId;
+    $obj->reclamacaoId = $dados->reclamacaoId;
     $obj->adminId = Auth::user()->id;
     $obj->save();
 
-    DB::table('reclamacaos')->where('id',$dados->protocoloId)->update(['adminId'=>Auth::user()->id, 'updated_at'=>date('Y-m-d H:i:s')]);
+    DB::table('reclamacaos')->where('id',$dados->reclamacaoId)->update(['adminId'=>Auth::user()->id, 'updated_at'=>date('Y-m-d H:i:s')]);
 
 
     return $obj;

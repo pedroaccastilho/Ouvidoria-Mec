@@ -16,9 +16,10 @@ class CreateReclamacaosTable extends Migration
         Schema::create('reclamacaos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('description');
-            $table->bigInteger('departmentId');
-            $table->bigInteger('userId');
+            $table->bigInteger('departmentId')->nullable();
+            $table->bigInteger('userId')->nullable();
             $table->bigInteger('adminId')->nullable();
+            $table->boolean('isNew')->nullable();
             $table->timestamps();
         });
     }

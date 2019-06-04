@@ -12,6 +12,6 @@ class SolucaoController extends Controller
     $dados = (object)$req->all();
     $solucao = Solucao::saveNew($dados);
 
-    return redirect()->route('reclamacao.show',$solucao->protocoloId);
+    return redirect()->route('reclamacao.show',$solucao->reclamacaoId);
   }
 }

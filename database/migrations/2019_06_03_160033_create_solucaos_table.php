@@ -17,8 +17,9 @@ class CreateSolucaosTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('description');
-            $table->bigInteger('protocoloId');
-            $table->bigInteger('adminId');
+            $table->bigInteger('reclamacaoId');
+            $table->bigInteger('adminId')->nullable();
+            $table->boolean('isNew')->nullable();
             $table->timestamps();
         });
     }

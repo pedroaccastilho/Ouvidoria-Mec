@@ -35,6 +35,8 @@ Route::group(['middleware'=>'admin'],function(){
   Route::post('/department/savenew',['as'=>'department.savenew','uses'=>'DepartmentController@saveNew']);
   Route::get('/department/showAll',['as'=>'department.showAll','uses'=>'DepartmentController@showAll']);
   Route::get('/department/show/{id}',['as'=>'department.show','uses'=>'DepartmentController@show']);
+  Route::post('/department/delete/{id}',['as'=>'department.destroy','uses'=>'DepartmentController@destroy']);
+
 
   //objeto reclamacoes
   Route::get('/reclamacao/showAll',['as'=>'reclamacao.showAll','uses'=>'ReclamacaoController@showAll']);
@@ -47,7 +49,12 @@ Route::group(['middleware'=>'admin'],function(){
 //Rotas de parte funcional
 Route::group(['middleware'=>'user'],function(){
   Route::get('/user',['as'=>'user.index','uses'=>'UserController@index']);
+
+  //reclamacao
   Route::get('/user/reclamacao',['as'=>'reclamacao.new','uses' => 'ReclamacaoController@new']);
   Route::post('/user/reclamacao/savenew',['as' => 'reclamacao.savenew','uses'=>'ReclamacaoController@saveNew']);
-  Route::get('/user/historico',['as'=>'historico.show','uses'=>'ReclamacaoController@historico']);
+
+  //historico de reclamacoes
+  Route::get('/user/historico/showAll',['as'=>'historico.showAll','uses'=>'HistoricoController@showAll']);
+  Route::get('/user/historico/show/{id}',['as'=>'historico.show','uses'=>'HistoricoController@show']);
 });

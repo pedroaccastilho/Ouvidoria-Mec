@@ -42,6 +42,7 @@ class UserController extends Controller
     }
 
     public function destroy($id){
+      DB::table('rel_users_departments')->where('adminId',$id)->delete();
       $dados = User::FindOrFail($id);
       $dados->delete();
 

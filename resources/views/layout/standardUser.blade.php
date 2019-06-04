@@ -32,10 +32,7 @@
                     <a class="nav-link" href="{{route('reclamacao.new')}}">Reclamações</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('historico.show')}}">Histórico</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Notificações</a>
+                    <a class="nav-link" href="{{route('historico.showAll')}}">Histórico</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">FAQ</a>
@@ -49,7 +46,6 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-default"
                       aria-labelledby="navbarDropdownMenuLink-333">
-                      <a class="dropdown-item" href="#">Perfil</a>
                       <a class="dropdown-item" href="{{route('login.changePassword')}}">Alterar senha</a>
                       <a class="dropdown-item" href="{{route('login.logout')}}">Logout</a>
                     </div>

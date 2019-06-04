@@ -7,11 +7,11 @@
   aria-hidden="true">
   <form action={{route('solucao.savenew')}} method="post" id="formAction">
     @csrf
-    <input type="hidden" name="protocoloId" value="{{$reclamacao[0]->id}}">
+    <input type="hidden" name="reclamacaoId" value="{{$reclamacao[0]->id}}">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">Cadatrar solução</h4>
+          <h4 class="modal-title w-100 font-weight-bold">Cadastrar solução</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
