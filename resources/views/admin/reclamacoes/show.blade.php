@@ -59,8 +59,9 @@
       <p>Usuario: {{$user[0]->name}}</p>
   </div>
   <div class="col-md-4">
-    <!-- Aparecer apenas quando for != null -->
+    @if(!$solucoes->isEmpty())
       <h3>Soluções</h3><br>
+    @endif
 
     @foreach($solucoes as $solucao)
     <hr>

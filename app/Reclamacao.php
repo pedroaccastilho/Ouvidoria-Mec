@@ -8,12 +8,13 @@ use Auth;
 class Reclamacao extends Model
 {
   public static function saveNew($dados){
-    $reclamacao = new Reclamacao();
-    $reclamacao->description  = $dados->description;
-    $reclamacao->userId = Auth::user()->id;
-    $reclamacao->departmentId = $dados->department;
-    $reclamacao->save();
+    $obj = new Reclamacao();
+    $obj->description  = $dados->description;
+    $obj->userId = Auth::user()->id;
+    $obj->departmentId = $dados->department;
+    $obj->isNew = true;
+    $obj->save();
 
-    return $reclamacao;
+    return $obj;
   }
 }

@@ -14,9 +14,10 @@ class Solucao extends Model
     $obj->title  = $dados->title;
     $obj->reclamacaoId = $dados->reclamacaoId;
     $obj->adminId = Auth::user()->id;
+    $obj->isNew = true;
     $obj->save();
 
-    DB::table('reclamacaos')->where('id',$dados->reclamacaoId)->update(['adminId'=>Auth::user()->id, 'updated_at'=>date('Y-m-d H:i:s')]);
+    DB::table('reclamacaos')->where('id',$dados->reclamacaoId)->update(['adminId'=>Auth::user()->id, 'updated_at'=>date('Y-m-d H:i:s'), 'isNew'=>false]);
 
 
     return $obj;

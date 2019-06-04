@@ -9,7 +9,7 @@
     <form action={{route('reclamacao.savenew')}} method="post" id="formAction">
       @csrf
           <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Nova reclamacão</h4>
+            <h4 class="modal-title w-100 font-weight-bold">Nova reclamação</h4>
           </div>
           <div class="modal-body">
 
