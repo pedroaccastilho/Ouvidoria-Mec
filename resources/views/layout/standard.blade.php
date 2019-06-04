@@ -31,16 +31,10 @@
             <a class="nav-link" href="{{route('department.showAll')}}">Departamentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Condominio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dúvidas</a>
+            <a class="nav-link" href="{{route('reclamacao.showAll')}}">Reclamações</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">FAQ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Reclamação</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -51,8 +45,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-default"
               aria-labelledby="navbarDropdownMenuLink-333">
-              <a class="dropdown-item" href="#">Perfil</a>
-              <a class="dropdown-item" href="#">Configurações</a>
+              <a class="dropdown-item" href="{{route('login.changePassword')}}">Alterar senha</a>
               <a class="dropdown-item" href="{{route('login.logout')}}">Logout</a>
             </div>
           </li>

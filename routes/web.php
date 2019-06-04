@@ -16,6 +16,8 @@ Route::post('/login/enter',['as'=>'login.enter','uses'=>'LoginController@enter']
 
 Route::group(['middleware'=>'auth'],function(){
   Route::get('/login/logout',['as'=>'login.logout','uses'=>'LoginController@logout']);
+  Route::get('/changePassword',['as'=>'login.changePassword','uses'=>'LoginController@changePassword']);
+  Route::post('/changePassword/save',['as'=>'login.saveNewPassword','uses'=>'LoginController@savePassword']);
 });
 
 //Rotas de parte administrativa
@@ -33,9 +35,26 @@ Route::group(['middleware'=>'admin'],function(){
   Route::post('/department/savenew',['as'=>'department.savenew','uses'=>'DepartmentController@saveNew']);
   Route::get('/department/showAll',['as'=>'department.showAll','uses'=>'DepartmentController@showAll']);
   Route::get('/department/show/{id}',['as'=>'department.show','uses'=>'DepartmentController@show']);
+  Route::post('/department/delete/{id}',['as'=>'department.destroy','uses'=>'DepartmentController@destroy']);
+
+
+  //objeto reclamacoes
+  Route::get('/reclamacao/showAll',['as'=>'reclamacao.showAll','uses'=>'ReclamacaoController@showAll']);
+  Route::get('/reclamacao/show/{id}',['as'=>'reclamacao.show','uses'=>'ReclamacaoController@show']);
+
+  //objeto solucoes
+  Route::post('/solucao/savenew',['as'=>'solucao.savenew','uses'=>'SolucaoController@savenew']);
 });
 
 //Rotas de parte funcional
 Route::group(['middleware'=>'user'],function(){
   Route::get('/user',['as'=>'user.index','uses'=>'UserController@index']);
+
+  //reclamacao
+  Route::get('/user/reclamacao',['as'=>'reclamacao.new','uses' => 'ReclamacaoController@new']);
+  Route::post('/user/reclamacao/savenew',['as' => 'reclamacao.savenew','uses'=>'ReclamacaoController@saveNew']);
+
+  //historico de reclamacoes
+  Route::get('/user/historico/showAll',['as'=>'historico.showAll','uses'=>'HistoricoController@showAll']);
+  Route::get('/user/historico/show/{id}',['as'=>'historico.show','uses'=>'HistoricoController@show']);
 });

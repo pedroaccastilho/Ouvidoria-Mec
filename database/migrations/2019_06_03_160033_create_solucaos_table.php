@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRelUsersDepartments extends Migration
+class CreateSolucaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateRelUsersDepartments extends Migration
      */
     public function up()
     {
-        Schema::create('rel_users_departments', function (Blueprint $table) {
+        Schema::create('solucaos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('adminId');
-            $table->bigInteger('departmentId');
+            $table->string('title');
+            $table->string('description');
+            $table->bigInteger('reclamacaoId');
+            $table->bigInteger('adminId')->nullable();
+            $table->boolean('isNew')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateRelUsersDepartments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rel_users_departments');
+        Schema::dropIfExists('solucaos');
     }
 }

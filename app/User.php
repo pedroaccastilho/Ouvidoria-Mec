@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Auth;
 
@@ -49,13 +50,18 @@ class User extends Authenticatable
       $user->genre  = $dados->genre;
       $user->birthday  = $dados->birthday;
       $user->email = $dados->email;
-      $user->condominium = bcrypt('1');
+      $user->condominium = '1';
       $user->phone  = $dados->phone;
       $user->apartmentNumber  = $dados->apartmentNumber;
       $user->block  = $dados->block;
       $user->password = bcrypt('123');
       $user->adminId = Auth::user()->id;
       $user->save();
+
+      //insert relacao em departments e users
+      if(Arr::has($dados,'isAdm')){
+        DB::table('rel_users_departments')->insert(['departmentId'=>$dados->department,'adminId'=>$user->id,'created_at'=> date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')]);
+      }
 
       return $user;
     }
@@ -70,7 +76,7 @@ class User extends Authenticatable
       $user->genre  = $dados->genre;
       $user->birthday  = $dados->birthday;
       $user->email = $dados->email;
-      $user->condominium = bcrypt('1');
+      $user->condominium = '1';
       $user->phone  = $dados->phone;
       $user->apartmentNumber  = $dados->apartmentNumber;
       $user->block  = $dados->block;

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Department;
+
 
 class DepartmentController extends Controller
 {
   public function showAll(){
     $departments = Department::orderBy('created_at','DESC')->get();
-    return view('admin/departments/showAll', compact('departments',$departments));
+    return view('admin.departments.showAll', compact('departments',$departments));
   }
 
   public function show($id){
@@ -22,5 +24,13 @@ class DepartmentController extends Controller
     $user = Department::saveNew($dados);
 
     return redirect()->route('department.show',$user->id);
+  }
+
+  public function destroy($id){
+    DB::table('rel_users_departments')->where('departmentId',$id)->delete();
+    $department = Department::FindOrFail($id);
+    $department->delete();
+
+    return redirect()->route('department.showAll');
   }
 }

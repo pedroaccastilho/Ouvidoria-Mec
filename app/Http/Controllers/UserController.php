@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\User;
 use App\Department;
+use App\User;
+use Auth;
 
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
 
     public function showAll(){
       $users = User::orderBy('created_at','DESC')->Paginate(10);
-      return view('admin/users/showAll', compact('users',$users));
+      $departments = Department::select()->get();
+      return view('admin/users/showAll', compact('users',$users), compact('departments',$departments));
     }
 
     public function show($id){
@@ -40,6 +42,7 @@ class UserController extends Controller
     }
 
     public function destroy($id){
+      DB::table('rel_users_departments')->where('adminId',$id)->delete();
       $dados = User::FindOrFail($id);
       $dados->delete();
 
