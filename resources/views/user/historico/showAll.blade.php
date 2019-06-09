@@ -3,12 +3,13 @@
 @section('title','MEC - Histórico')
 
 @section('content')
-<div class="center backgroundDiv">
+<div style="width:750px;" class="center backgroundDiv">
   <div class="row">
       <div class="col-md-12">
         <h2>Histórico de Reclamações</h2>
       </div>
   </div>
+  @if(!$reclamacoes->isEmpty())
   <div class="panel">
       <table class="table" align="center">
           <thead>
@@ -46,6 +47,10 @@
           </tbody>
       </table>
   </div>
+  @else
+  <br>
+  <h5>Ops, parece que ainda não há Reclamações cadastradas!</h5>
+  @endif
 </div>
 
 @endsection

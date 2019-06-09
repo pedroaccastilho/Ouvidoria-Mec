@@ -29,13 +29,13 @@
                     <a class="nav-link" href="{{route('user.index')}}">Home <span class="sr-only"></span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('reclamacao.new')}}">Reclamações</a>
+                    <a class="nav-link" href="{{route('reclamacao.new')}}">Nova Reclamação</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('historico.showAll')}}">Histórico</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">FAQ</a>
+                    <a class="nav-link" href="{{route('faq.showAllToCustomer')}}">Perguntas frequentes</a>
                   </li>
                 </ul>
                 <ul class="navbar-nav ml-auto nav-flex-icons">

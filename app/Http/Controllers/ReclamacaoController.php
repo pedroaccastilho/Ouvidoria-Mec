@@ -22,7 +22,7 @@ class ReclamacaoController extends Controller
     $dados = (object)$req->all();
     $user = Reclamacao::saveNew($dados);
 
-    return redirect()->route('user.index');
+    return redirect()->route('historico.showAll');
   }
 
   public function showAll(){
