@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Faq;
+use Illuminate\Support\Arr;
+use App\FAQ;
 
 class FAQController extends Controller
 {
@@ -39,8 +40,13 @@ class FAQController extends Controller
     return redirect()->route('faq.showAll');
   }
 
-  public function showAllToCustomer(){
-      $faqs = FAQ::orderBy('created_at','DESC')->get();
+  public function showAllToCustomer(Request $req){
+      $dados = (object)$req->all();
+      if(Arr::has($dados,'description')){
+        $faqs = FAQ::where('description','like','%'.$dados->description.'%')->orderBy('created_at','DESC')->get();
+      }else{
+        $faqs = FAQ::orderBy('created_at','DESC')->get();
+      }
       return view('user.faq.showAll', compact('faqs',$faqs));
   }
 
