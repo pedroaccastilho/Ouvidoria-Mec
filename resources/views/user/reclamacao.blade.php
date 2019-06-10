@@ -28,14 +28,13 @@
                       <textarea class="form-control" name="description" rows="8" cols="80" required></textarea>
                   </div>
               </div>
-              <!--Image>
+
               <div class="form-group row">
-                  <label for="image" class="col-sm-4 col-form-label">Imagem:</label>
+                  <label for="isAnonymous" class="col-sm-4 col-form-label"> Denuncia anonima?</label>
                   <div class="col-sm-5">
-                      <input type="file" class="form-control" name="image">
+                      <input type="checkbox" name="isAnonymous" value="Sim">
                   </div>
               </div>
-              <!-->
             </div>
           <div class="modal-footer d-flex justify-content-center">
             <input class="btn btn-primary" type="submit" name="submit" value="Enviar">

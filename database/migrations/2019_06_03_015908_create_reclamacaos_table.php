@@ -20,6 +20,7 @@ class CreateReclamacaosTable extends Migration
             $table->bigInteger('userId')->nullable();
             $table->bigInteger('adminId')->nullable();
             $table->boolean('isNew')->nullable();
+            $table->boolean('isAnonymous');
             $table->timestamps();
         });
     }

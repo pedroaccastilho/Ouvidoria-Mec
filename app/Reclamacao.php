@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Auth;
 
 class Reclamacao extends Model
@@ -13,6 +14,7 @@ class Reclamacao extends Model
     $obj->userId = Auth::user()->id;
     $obj->departmentId = $dados->department;
     $obj->isNew = true;
+    $obj->isAnonymous = Arr::has($dados,'isAnonymous');
     $obj->save();
 
     return $obj;
