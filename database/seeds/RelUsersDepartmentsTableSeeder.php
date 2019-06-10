@@ -15,5 +15,15 @@ class RelUsersDepartmentsTableSeeder extends Seeder
           'departmentId' => 1,
           'adminId' => 1
       ]);
+
+      DB::table('rel_users_departments')->insert([
+          'departmentId' => 2,
+          'adminId' => 3
+      ]);
+
+      DB::table('rel_users_departments')->insert([
+          'departmentId' => 3,
+          'adminId' => 2
+      ]);
     }
 }

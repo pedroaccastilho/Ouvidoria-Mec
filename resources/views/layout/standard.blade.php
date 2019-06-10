@@ -34,7 +34,7 @@
             <a class="nav-link" href="{{route('reclamacao.showAll')}}">Reclamações</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">FAQ</a>
+            <a class="nav-link" href="{{route('faq.showAll')}}">FAQ</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">

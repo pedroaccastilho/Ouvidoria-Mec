@@ -24,7 +24,7 @@
             @csrf
             <p class="h4 mb-4">Login</p>
             <input type="email" name="email" class="form-control mb-4" placeholder="email@dominio.com">
-            <input type="password" name="password" class="form-control mb-4">
+            <input type="password" name="password" class="form-control mb-4" placeholder="Senha">
             <input type="submit" class="btn btn-info btn-block my-4" value="Enviar"/>
             <button type="reset" class="form-control mb-4">Limpar</button>
           </form>

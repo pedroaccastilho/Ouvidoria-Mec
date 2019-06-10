@@ -33,10 +33,17 @@ Route::group(['middleware'=>'admin'],function(){
 
   //objeto departments
   Route::post('/department/savenew',['as'=>'department.savenew','uses'=>'DepartmentController@saveNew']);
+  Route::post('/department/saveupdate',['as'=>'department.saveupdate','uses'=>'DepartmentController@saveUpdate']);
   Route::get('/department/showAll',['as'=>'department.showAll','uses'=>'DepartmentController@showAll']);
   Route::get('/department/show/{id}',['as'=>'department.show','uses'=>'DepartmentController@show']);
   Route::post('/department/delete/{id}',['as'=>'department.destroy','uses'=>'DepartmentController@destroy']);
 
+  //objeto faq
+  Route::post('/faq/savenew',['as'=>'faq.savenew','uses'=>'FAQController@saveNew']);
+  Route::post('/faq/saveupdate',['as'=>'faq.saveupdate','uses'=>'FAQController@saveUpdate']);
+  Route::get('/faq/showAll',['as'=>'faq.showAll','uses'=>'FAQController@showAll']);
+  Route::get('/faq/show/{id}',['as'=>'faq.show','uses'=>'FAQController@show']);
+  Route::post('/faq/delete/{id}',['as'=>'faq.destroy','uses'=>'FAQController@destroy']);
 
   //objeto reclamacoes
   Route::get('/reclamacao/showAll',['as'=>'reclamacao.showAll','uses'=>'ReclamacaoController@showAll']);
@@ -48,13 +55,17 @@ Route::group(['middleware'=>'admin'],function(){
 
 //Rotas de parte funcional
 Route::group(['middleware'=>'user'],function(){
-  Route::get('/user',['as'=>'user.index','uses'=>'UserController@index']);
+  Route::get('/home',['as'=>'user.index','uses'=>'UserController@index']);
 
   //reclamacao
-  Route::get('/user/reclamacao',['as'=>'reclamacao.new','uses' => 'ReclamacaoController@new']);
-  Route::post('/user/reclamacao/savenew',['as' => 'reclamacao.savenew','uses'=>'ReclamacaoController@saveNew']);
+  Route::get('/reclamacao',['as'=>'reclamacao.new','uses' => 'ReclamacaoController@new']);
+  Route::post('/reclamacao/savenew',['as' => 'reclamacao.savenew','uses'=>'ReclamacaoController@saveNew']);
 
   //historico de reclamacoes
-  Route::get('/user/historico/showAll',['as'=>'historico.showAll','uses'=>'HistoricoController@showAll']);
-  Route::get('/user/historico/show/{id}',['as'=>'historico.show','uses'=>'HistoricoController@show']);
+  Route::get('/historico',['as'=>'historico.showAll','uses'=>'HistoricoController@showAll']);
+  Route::get('/historico/{id}',['as'=>'historico.show','uses'=>'HistoricoController@show']);
+
+  //faqs
+  Route::get('/faq',['as'=>'faq.showAllToCustomer','uses'=>'FAQController@showAllToCustomer']);
+  Route::get('/faq/{id}',['as'=>'faq.showToCustomer','uses'=>'FAQController@showToCustomer']);
 });

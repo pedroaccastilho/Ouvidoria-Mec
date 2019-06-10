@@ -26,7 +26,11 @@
                 <td> <a href="{{route('reclamacao.show',$reclamacao->id)}}">{{$reclamacao->description}}</a> </td>
                 @foreach($users as $user)
                   @if($user->id == $reclamacao->userId)
-                    <td> <a href="{{route('reclamacao.show',$reclamacao->id)}}">{{$user->name}}</a> </td>
+                    @if($reclamacao->isAnonymous)
+                      <td> <a href="{{route('reclamacao.show',$reclamacao->id)}}">Denuncia Anonima</a> </td>
+                    @else
+                      <td> <a href="{{route('reclamacao.show',$reclamacao->id)}}">{{$user->name}}</a> </td>
+                    @endif
                   @endif
                 @endforeach
                 @foreach($departments as $department)

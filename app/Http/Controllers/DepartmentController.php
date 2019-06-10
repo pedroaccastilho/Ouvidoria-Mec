@@ -26,6 +26,13 @@ class DepartmentController extends Controller
     return redirect()->route('department.show',$user->id);
   }
 
+  public function saveUpdate(Request $req){
+    $dados = (object)$req->all();
+    $user = Department::saveUpdate($dados);
+
+    return redirect()->route('department.show',$user->id);
+  }
+
   public function destroy($id){
     DB::table('rel_users_departments')->where('departmentId',$id)->delete();
     $department = Department::FindOrFail($id);

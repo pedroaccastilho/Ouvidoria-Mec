@@ -12,8 +12,24 @@ class DepartmentsTableSeeder extends Seeder
     public function run()
     {
       DB::table('departments')->insert([
-          'name' => 'test',
-          'description' => 'test',
+          'name' => 'Portaria',
+          'description' => 'Departamento destinado ao pessoal de gerencia da portaria.',
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s'),
+          'adminId' => 1
+      ]);
+
+      DB::table('departments')->insert([
+          'name' => 'Área de Lazer',
+          'description' => 'Departamento destinado ao pessoal de gerencia das áreas de lazer.',
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s'),
+          'adminId' => 1
+      ]);
+
+      DB::table('departments')->insert([
+          'name' => 'Estacionamento',
+          'description' => 'Departamento destinado ao pessoal de gerencia do estacionamento.',
           'created_at' => date('Y-m-d H:i:s'),
           'updated_at' => date('Y-m-d H:i:s'),
           'adminId' => 1

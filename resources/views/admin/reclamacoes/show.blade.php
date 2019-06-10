@@ -45,9 +45,16 @@
     <h2>Departamento: {{$department[0]->name}}</h2>
   </div>
   <div class="col-md-6">
+    @if($solucoes->count() < 2)
     <div class="text-center">
       <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalNewSolucao">Adicionar solução</a>
     </div>
+    <div class="text-center">
+      <h5>Obs: Max. de 2 soluções</h5>
+    </div>
+    @else
+      <h5>Max. de soluções atingidas.</h5>
+    @endif
   </div>
 </div>
 <br>
@@ -56,23 +63,28 @@
   <div class="col-md-4">
     <h3>Dados reclamação</h3><br>
       <p>Descrição: {{$reclamacao[0]->description}}</p>
-      <p>Usuario: {{$user[0]->name}}</p>
+      @if($reclamacao[0]->isAnonymous)
+        <p>Usuario: Denuncia Anonima</p>
+      @else
+        <p>Usuario: {{$user[0]->name}}</p>
+      @endif
   </div>
   <div class="col-md-4">
     @if(!$solucoes->isEmpty())
       <h3>Soluções</h3><br>
+
+      @foreach($solucoes as $solucao)
+      <hr>
+        <p>Titulo: {{$solucao->title}}</p>
+        <p>Descrição: {{$solucao->description}}</p>
+        @foreach($authors as $author)
+          @if($author->id == $solucao->adminId)
+            <p>Autor: {{$author->name}}</p>
+          @endif
+        @endforeach
+      @endforeach
     @endif
 
-    @foreach($solucoes as $solucao)
-    <hr>
-      <p>Titulo: {{$solucao->title}}</p>
-      <p>Descrição: {{$solucao->description}}</p>
-      @foreach($authors as $author)
-        @if($author->id == $solucao->adminId)
-          <p>Autor: {{$author->name}}</p>
-        @endif
-      @endforeach
-    @endforeach
   </div>
 </div>
 @endsection
