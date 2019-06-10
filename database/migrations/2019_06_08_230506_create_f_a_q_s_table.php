@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReclamacaosTable extends Migration
+class CreateFAQSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateReclamacaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('reclamacaos', function (Blueprint $table) {
+        Schema::create('f_a_q_s', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
             $table->string('description');
-            $table->bigInteger('departmentId')->nullable();
-            $table->bigInteger('userId')->nullable();
-            $table->bigInteger('adminId')->nullable();
-            $table->boolean('isNew')->nullable();
-            $table->boolean('isAnonymous');
+            $table->string('response');
+            $table->bigInteger('adminId');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateReclamacaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reclamacaos');
+        Schema::dropIfExists('f_a_q_s');
     }
 }

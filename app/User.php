@@ -41,49 +41,49 @@ class User extends Authenticatable
     ];
 
     public static function saveNew($dados){
-      $user = new User();
-      $user->isAdm = Arr::has($dados,'isAdm');
-      $user->type  = $dados->type;
-      $user->name  = $dados->name;
-      $user->cpf   = $dados->cpf;
-      $user->rg    = $dados->rg;
-      $user->genre  = $dados->genre;
-      $user->birthday  = $dados->birthday;
-      $user->email = $dados->email;
-      $user->condominium = '1';
-      $user->phone  = $dados->phone;
-      $user->apartmentNumber  = $dados->apartmentNumber;
-      $user->block  = $dados->block;
-      $user->password = bcrypt('123');
-      $user->adminId = Auth::user()->id;
-      $user->save();
+      $obj = new User();
+      $obj->isAdm = Arr::has($dados,'isAdm');
+      $obj->type  = $dados->type;
+      $obj->name  = $dados->name;
+      $obj->cpf   = $dados->cpf;
+      $obj->rg    = $dados->rg;
+      $obj->genre  = $dados->genre;
+      $obj->birthday  = $dados->birthday;
+      $obj->email = $dados->email;
+      $obj->condominium = '1';
+      $obj->phone  = $dados->phone;
+      $obj->apartmentNumber  = $dados->apartmentNumber;
+      $obj->block  = $dados->block;
+      $obj->password = bcrypt('123');
+      $obj->adminId = Auth::user()->id;
+      $obj->save();
 
       //insert relacao em departments e users
       if(Arr::has($dados,'isAdm')){
-        DB::table('rel_users_departments')->insert(['departmentId'=>$dados->department,'adminId'=>$user->id,'created_at'=> date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')]);
+        DB::table('rel_users_departments')->insert(['departmentId'=>$dados->department,'adminId'=>$obj->id,'created_at'=> date('Y-m-d H:i:s'),'updated_at'=>date('Y-m-d H:i:s')]);
       }
 
-      return $user;
+      return $obj;
     }
 
     public static function saveUpdate($dados){
-      $user = User::FindOrFail($dados->id);
-      $user->isAdm = Arr::has($dados,'isAdm');
-      $user->type  = $dados->type;
-      $user->name  = $dados->name;
-      $user->cpf   = $dados->cpf;
-      $user->rg    = $dados->rg;
-      $user->genre  = $dados->genre;
-      $user->birthday  = $dados->birthday;
-      $user->email = $dados->email;
-      $user->condominium = '1';
-      $user->phone  = $dados->phone;
-      $user->apartmentNumber  = $dados->apartmentNumber;
-      $user->block  = $dados->block;
-      $user->password = bcrypt('123');
-      $user->adminId = Auth::user()->id;
-      $user->save();
+      $obj = User::FindOrFail($dados->id);
+      $obj->isAdm = Arr::has($dados,'isAdm');
+      $obj->type  = $dados->type;
+      $obj->name  = $dados->name;
+      $obj->cpf   = $dados->cpf;
+      $obj->rg    = $dados->rg;
+      $obj->genre  = $dados->genre;
+      $obj->birthday  = $dados->birthday;
+      $obj->email = $dados->email;
+      $obj->condominium = '1';
+      $obj->phone  = $dados->phone;
+      $obj->apartmentNumber  = $dados->apartmentNumber;
+      $obj->block  = $dados->block;
+      $obj->password = bcrypt('123');
+      $obj->adminId = Auth::user()->id;
+      $obj->save();
 
-      return $user;
+      return $obj;
     }
 }

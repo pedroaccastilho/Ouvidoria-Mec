@@ -45,7 +45,7 @@
                 <div class="form-group row">
                     <label for="Nome" class="col-sm-4 col-form-label">* Nome:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" maxlength="50" name="name" placeholder="Seu nome" required>
+                        <input type="text" class="form-control" maxlength="255" name="name" placeholder="Seu nome" required>
                     </div>
                 </div>
 
@@ -91,7 +91,7 @@
                 <div class="form-group row">
                     <label for="Email" class="col-sm-4 col-form-label">* E-mail:</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" maxlength="50" name="email" placeholder="exemplo@email.com" required>
+                        <input type="email" class="form-control" maxlength="255" name="email" placeholder="exemplo@email.com" required>
                     </div>
                 </div>
 

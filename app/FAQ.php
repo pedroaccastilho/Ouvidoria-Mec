@@ -5,12 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Auth;
 
-class Department extends Model
+class FAQ extends Model
 {
   public static function saveNew($dados){
-    $obj = new Department();
-    $obj->name  = $dados->name;
+    $obj = new FAQ();
+    $obj->title  = $dados->title;
     $obj->description  = $dados->description;
+    $obj->response  = $dados->response;
     $obj->adminId = Auth::user()->id;
     $obj->save();
 
@@ -18,9 +19,10 @@ class Department extends Model
   }
 
   public static function saveUpdate($dados){
-    $obj = Department::FindOrFail($dados->id);
-    $obj->name  = $dados->name;
+    $obj = FAQ::FindOrFail($dados->id);
+    $obj->title  = $dados->title;
     $obj->description  = $dados->description;
+    $obj->response  = $dados->response;
     $obj->adminId = Auth::user()->id;
     $obj->save();
 
